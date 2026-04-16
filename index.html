@@ -62,10 +62,22 @@ nav{
 /* TradingView */
 .tv-wrap{
   height:60px;
-  border-top:1px solid var(--border);
   background:#fff;
   display:flex;
   align-items:center;
+  justify-content:center;
+  position:relative;
+}
+.tv-wrap::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(75vw,380px);
+  max-width:380px;
+  height:1px;
+  background:var(--border);
 }
 .tradingview-widget-container,
 .tradingview-widget-container__widget{
