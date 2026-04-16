@@ -27,7 +27,7 @@ body{font-family:'Nunito',sans-serif;background:#f8f9ff;color:#1e1e2f;overflow-x
   --gold:#f59e0b;
   --shadow:0 4px 20px rgba(74,77,184,.10);
   --shadow-lg:0 16px 48px rgba(74,77,184,.18);
-  --nav-h:160px;
+  --nav-h:170px;
 }
 
 /* ── NAV ── */
@@ -60,10 +60,25 @@ nav{
 .mobile-menu.open{display:flex;}
 
 /* TradingView */
-.tv-wrap{height:36px;overflow:hidden;border-top:1px solid var(--border);}
+.tv-wrap{
+  height:60px;
+  border-top:1px solid var(--border);
+  background:#fff;
+  display:flex;
+  align-items:center;
+}
+.tradingview-widget-container,
+.tradingview-widget-container__widget{
+  height:60px!important;
+}
+.tradingview-widget-container{
+  width:100%;
+  display:flex;
+  align-items:center;
+}
 
 /* Buffett ticker */
-.ticker-bar{background:var(--purple);height:36px;display:flex;align-items:center;overflow:hidden;}
+.ticker-bar{background:var(--purple);height:60px;display:flex;align-items:center;overflow:hidden;}
 .ticker-track{display:flex;align-items:center;animation:ticker-scroll 28s linear infinite;white-space:nowrap;}
 .ticker-track:hover{animation-play-state:paused;}
 .ticker-item{color:white;font-size:.78rem;font-weight:600;padding:0 3rem;font-style:italic;white-space:nowrap;}
@@ -219,11 +234,16 @@ footer{background:var(--black);color:white;padding:3rem 6vw 2rem;}
   .steps-grid{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:768px){
-  :root{--nav-h:124px;}
+  :root{--nav-h:170px;}
   .nav-links{display:none;}
   .hamburger{display:block;}
-  /* Mobile: esconde o ticker do TradingView para manter o header compacto */
-  .tv-wrap{display:none;}
+  .tv-wrap{
+    height:60px;
+  }
+  .tradingview-widget-container,
+  .tradingview-widget-container__widget{
+    height:60px!important;
+  }
   .sobre-grid{grid-template-columns:1fr;gap:2rem;}
   .analista-box{grid-template-columns:1fr;padding:2rem;gap:1.5rem;}
   .analista-avatar{width:100px;height:100px;font-size:2.5rem;}
@@ -234,7 +254,7 @@ footer{background:var(--black);color:white;padding:3rem 6vw 2rem;}
   .footer-top{flex-direction:column;align-items:flex-start;}
 }
 @media(max-width:540px){
-  :root{--nav-h:124px;}
+  :root{--nav-h:178px;}
   .hero-ctas{flex-direction:column;}
   .btn-primary,.btn-secondary{width:100%;justify-content:center;}
   .hero-stats{grid-template-columns:1fr;}
@@ -270,7 +290,7 @@ footer{background:var(--black);color:white;padding:3rem 6vw 2rem;}
     <a href="https://wa.me/5511947228922" class="nav-cta">Assinar Agora</a>
   </div>
   <div class="tv-wrap">
-    <div class="tradingview-widget-container" style="height:36px;">
+    <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
       {"symbols":[{"proName":"BMFBOVESPA:IBOV","title":"Ibovespa"},{"proName":"FX_IDC:USDBRL","title":"Dólar"},{"proName":"FX_IDC:EURBRL","title":"Euro"},{"proName":"BMFBOVESPA:PETR4","title":"PETR4"},{"proName":"BMFBOVESPA:VALE3","title":"VALE3"},{"proName":"BMFBOVESPA:ITUB4","title":"ITUB4"},{"proName":"BMFBOVESPA:BBDC4","title":"BBDC4"},{"proName":"COMEX:GC1!","title":"Ouro"}],"showSymbolLogo":false,"isTransparent":true,"displayMode":"compact","colorTheme":"light","locale":"br"}
